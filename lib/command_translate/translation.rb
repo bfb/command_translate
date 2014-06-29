@@ -11,7 +11,7 @@ class Translation
   end
 
   def translate
-    encoded_url = URI.encode("http://translate.google.com.br/translate_a/t?client=t&text=#{text}&hl=#{@to}&sl=#{@from}&ie=UTF-8&oe=UTF-8")
+    encoded_url = URI.encode(url)
     response = Net::HTTP.get(URI(encoded_url))
 
     # use JSON parser to avoid to use eval
@@ -22,5 +22,9 @@ class Translation
     else
       translations[1][0][1].nil? ? translations[0][0][0] : translations[1][0][1].join(", ")
     end
+  end
+
+  def url
+    "http://translate.google.com.br/translate_a/t?client=t&text=#{text}&hl=#{to}&sl=#{from}&ie=UTF-8&oe=UTF-8"
   end
 end
