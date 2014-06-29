@@ -5,10 +5,7 @@ require 'net/http'
 require 'json'
 require 'terminal-table'
 
-# Add requires for other files you add to your project here, so
-# you just need to require this one file in your bin file
 module CommandTranslate
-
   def self.translate
     options = ARGV
     begin
@@ -27,7 +24,7 @@ module CommandTranslate
   end
 
   def self.instructions
-    Logger.info "This is a simple language translator tool."
+    Logger.info "Translator command line"
     Logger.info "To use just run: translate from:to text"
     Logger.info "e.g.: translate en:es \"My dog is crazy\""
   end
