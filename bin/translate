@@ -70,7 +70,7 @@ require 'command_translate'
     :yi => "Yiddish",
   }
 
-arg = ARGV[0].downcase
+arg = ARGV[0] ? ARGV[0].downcase : ""
 
 case arg
 when "help"
